@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Republic of Gerald Wu — Explore His World</title>
+  <meta name="description" content="An archive of alternate history maps, drama and documents — explore the world of Gerald Wu with your mouse.">
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body class="page-home">
+
+  <main class="hero">
+    <!-- 超大名字层：压在地图下面 -->
+    <div class="hero__name" aria-hidden="true">Gerald Wu</div>
+
+    <!-- 四象限网格：每个象限是一个可 hover 的模块 -->
+    <div class="hero__grid" role="navigation" aria-label="Site sections">
+
+      <!-- 左上：About Me -->
+      <a class="hero__zone hero__zone--tl" href="about.html" data-title="Republic of ABOUT ME" data-desc="The person behind the map. A student at Moonshot Academy with a wide range of interests — history, writing, drama, and whatever I happen to discover next.">
+        <span class="hero__zone-label">About Me</span>
+      </a>
+
+      <!-- 右上：Artifacts -->
+      <a class="hero__zone hero__zone--tr" href="artifacts.html" data-title="Republic of ARTIFACTS" data-desc="A growing collection of things I've made — maps, stage plays, and documents from worlds that never were.">
+        <span class="hero__zone-label">Artifacts</span>
+      </a>
+
+      <!-- 左下：Map Gallery -->
+      <a class="hero__zone hero__zone--bl" href="maps.html" data-title="State of MAP-GALLERY" data-desc="Alternate history maps. Imagined borders, countries, and timelines across different worlds — created since 2024.">
+        <span class="hero__zone-label">Map Gallery</span>
+      </a>
+
+      <!-- 右下：Contact -->
+      <button class="hero__zone hero__zone--br" type="button" data-donate data-title="Contact & Donate" data-desc="No donation needed. This is a student archive — the only currency it accepts is your curiosity.">
+        <span class="hero__zone-label">Contact</span>
+      </button>
+
+    </div>
+
+    <!-- hover 浮窗 -->
+    <div class="hero__tooltip" data-tooltip aria-hidden="true">
+      <div class="hero__tooltip-title" data-tooltip-title></div>
+      <div class="hero__tooltip-desc" data-tooltip-desc></div>
+      <div class="hero__tooltip-hint">Click to enter →</div>
+    </div>
+
+    <!-- 底部标题与 Donate -->
+    <div class="shell hero__inner">
+      <h1 class="hero__title">Explore His World With Your Mouse</h1>
+      <div class="hero__actions">
+        <button class="btn btn--donate" type="button" data-donate>Donate</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Donate 对话框 -->
+  <dialog class="note-card" data-donate-dialog aria-labelledby="donate-title">
+    <h2 id="donate-title">No donation needed.</h2>
+    <p>This is a student archive — the only currency it accepts is your curiosity.
+       Click the map, wander around, and tell me which world we should build next.</p>
+    <form method="dialog">
+      <button class="btn" type="submit">Back to the map</button>
+    </form>
+  </dialog>
+
+</body>
+</html>

@@ -11,7 +11,7 @@
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const STORY = {
+  const STORY_DEFAULT = {
     start: 'start',
     scenes: {
       start: {
@@ -352,8 +352,11 @@
     }
   };
 
+  /* 其他地图的剧本通过 window.STORY 注入（见 js/story-levant.js），未注入时用本页默认剧本 */
+  const STORY = window.STORY || STORY_DEFAULT;
+
   /* 游戏 UI 小文案：跟随页面语言（i18n.js 会改 <html lang>） */
-  const UI = {
+  const UI = window.STORY_UI || {
     en: { restart: 'Start over', ending: 'Ending' },
     zh: { restart: '重新开始', ending: '结局' }
   };

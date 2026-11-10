@@ -394,6 +394,7 @@ button {
   z-index: 2;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 16px;
   margin-top: clamp(14px, 1.8vw, 20px);
   pointer-events: auto;

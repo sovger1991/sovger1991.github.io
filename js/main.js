@@ -77,10 +77,45 @@
     });
   }
 
-  /* 3. Map lightbox */
+  /* 3. Ask Me dialogs */
+  const askTriggers = document.querySelectorAll('[data-ask]');
+  askTriggers.forEach((trigger) => {
+    const dialog = document.querySelector(`[data-ask-dialog="${trigger.dataset.ask}"]`);
+    if (dialog) trigger.addEventListener('click', () => dialog.showModal());
+  });
+
+  document.querySelectorAll('[data-ask-form]').forEach((form) => {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const field = (name) => (form.elements[name]?.value || '').trim();
+      const topic = field(form.dataset.subjectField || '');
+      const subject = `${form.dataset.subject || 'Message'} — ${topic || 'a new message'}`;
+      const body = Array.from(form.querySelectorAll('[data-label]'))
+        .map((input) => `${input.dataset.label}: ${input.value.trim() || '—'}`)
+        .join('\n\n');
+
+      const mailto =
+        'mailto:geraldwu@moonshotacademy.cn' +
+        `?subject=${encodeURIComponent(subject)}` +
+        `&body=${encodeURIComponent(`${body}\n\n— Sent from the Republic of Gerald Wu`)}`;
+
+      // 关闭窗口，交给系统邮件 App 打开写好的邮件
+      form.closest('dialog')?.close();
+
+      const link = document.createElement('a');
+      link.href = mailto;
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    });
+  });
+
+  /* 4. Map lightbox */
   const lightbox = document.querySelector('[data-lightbox-dialog]');
   const lightboxImage = document.querySelector('[data-lightbox-image]');
   const lightboxCaption = document.querySelector('[data-lightbox-caption]');
+  const lightboxMore = document.querySelector('[data-lightbox-more]');
 
   if (lightbox && lightboxImage && lightboxCaption) {
     document.querySelectorAll('[data-lightbox]').forEach((link) => {
@@ -90,6 +125,15 @@
         lightboxImage.src = link.getAttribute('href');
         lightboxImage.alt = caption;
         lightboxCaption.textContent = caption;
+        if (lightboxMore) {
+          // 只有带 data-more 的地图才有详情页
+          if (link.dataset.more) {
+            lightboxMore.href = link.dataset.more;
+            lightboxMore.hidden = false;
+          } else {
+            lightboxMore.hidden = true;
+          }
+        }
         lightbox.showModal();
       });
     });
@@ -99,7 +143,7 @@
     });
   }
 
-  /* 4. Shared close buttons */
+  /* 5. Shared close buttons */
   document.querySelectorAll('[data-close]').forEach((button) => {
     button.addEventListener('click', () => button.closest('dialog')?.close());
   });

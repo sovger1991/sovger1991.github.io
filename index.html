@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Republic of Gerald Wu — Explore His World</title>
+  <title data-i18n="doc.title.home">Republic of Gerald Wu — Explore His World</title>
   <meta name="description" content="An archive of alternate history maps, drama and documents — explore the world of Gerald Wu with your mouse.">
   <link rel="stylesheet" href="assets/fonts/fonts.css">
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/i18n.js?v=3" defer></script>
   <script src="js/main.js" defer></script>
 </head>
 <body class="page-home">
@@ -19,23 +20,23 @@
     <div class="hero__grid" role="navigation" aria-label="Site sections">
 
       <!-- 左上：About Me -->
-      <a class="hero__zone hero__zone--tl" href="about.html" data-title="Republic of ABOUT ME" data-desc="The person behind the map. A student at Moonshot Academy with a wide range of interests — history, writing, drama, and whatever I happen to discover next.">
-        <span class="hero__zone-label">About Me</span>
+      <a class="hero__zone hero__zone--tl" href="about.html" data-i18n-title="home.zone.about.title" data-i18n-desc="home.zone.about.desc" data-title="Republic of ABOUT ME" data-desc="The person behind the map. A student at Moonshot Academy with a wide range of interests — history, writing, drama, and whatever I happen to discover next.">
+        <span class="hero__zone-label" data-i18n="home.zone.about">About Me</span>
       </a>
 
       <!-- 右上：Artifacts -->
-      <a class="hero__zone hero__zone--tr" href="artifacts.html" data-title="Republic of ARTIFACTS" data-desc="A growing collection of things I've made — maps, stage plays, and documents from worlds that never were.">
-        <span class="hero__zone-label">Artifacts</span>
+      <a class="hero__zone hero__zone--tr" href="artifacts.html" data-i18n-title="home.zone.artifacts.title" data-i18n-desc="home.zone.artifacts.desc" data-title="Republic of ARTIFACTS" data-desc="A growing collection of things I've made — maps, stage plays, and documents from worlds that never were.">
+        <span class="hero__zone-label" data-i18n="home.zone.artifacts">Artifacts</span>
       </a>
 
       <!-- 左下：Map Gallery -->
-      <a class="hero__zone hero__zone--bl" href="maps.html" data-title="State of MAP-GALLERY" data-desc="Alternate history maps. Imagined borders, countries, and timelines across different worlds — created since 2024.">
-        <span class="hero__zone-label">Map Gallery</span>
+      <a class="hero__zone hero__zone--bl" href="maps.html" data-i18n-title="home.zone.maps.title" data-i18n-desc="home.zone.maps.desc" data-title="State of MAP-GALLERY" data-desc="Alternate history maps. Imagined borders, countries, and timelines across different worlds — created since 2024.">
+        <span class="hero__zone-label" data-i18n="home.zone.maps">Map Gallery</span>
       </a>
 
       <!-- 右下：Contact -->
-      <button class="hero__zone hero__zone--br" type="button" data-donate data-title="Contact & Donate" data-desc="No donation needed. This is a student archive — the only currency it accepts is your curiosity.">
-        <span class="hero__zone-label">Contact</span>
+      <button class="hero__zone hero__zone--br" type="button" data-donate data-i18n-title="home.zone.contact.title" data-i18n-desc="home.zone.contact.desc" data-title="Contact & Donate" data-desc="No donation needed. This is a student archive — the only currency it accepts is your curiosity.">
+        <span class="hero__zone-label" data-i18n="home.zone.contact">Contact</span>
       </button>
 
     </div>
@@ -44,25 +45,33 @@
     <div class="hero__tooltip" data-tooltip aria-hidden="true">
       <div class="hero__tooltip-title" data-tooltip-title></div>
       <div class="hero__tooltip-desc" data-tooltip-desc></div>
-      <div class="hero__tooltip-hint">Click to enter →</div>
+      <div class="hero__tooltip-hint" data-i18n="home.tooltip.hint">Click to enter →</div>
     </div>
 
-    <!-- 底部标题与 Donate -->
+    <!-- 底部标题与 Donate / Ask Me -->
     <div class="shell hero__inner">
-      <h1 class="hero__title">Explore His World With Your Mouse</h1>
+      <h1 class="hero__title" data-i18n="home.title">Explore His World With Your Mouse</h1>
       <div class="hero__actions">
-        <button class="btn btn--donate" type="button" data-donate>Donate</button>
+        <button class="btn btn--donate" type="button" data-donate data-i18n="home.donate">Donate</button>
+        <a class="btn btn--outline" href="ask.html" data-i18n="home.ask">Ask Me</a>
+        <button class="pill" type="button" data-lang-toggle>中文</button>
       </div>
     </div>
   </main>
 
   <!-- Donate 对话框 -->
-  <dialog class="note-card" data-donate-dialog aria-labelledby="donate-title">
-    <h2 id="donate-title">No donation needed.</h2>
-    <p>This is a student archive — the only currency it accepts is your curiosity.
-       Click the map, wander around, and tell me which world we should build next.</p>
-    <form method="dialog">
-      <button class="btn" type="submit">Back to the map</button>
+  <dialog class="note-card donate-card" data-donate-dialog aria-labelledby="donate-title">
+    <div class="donate-card__text">
+      <h2 id="donate-title" data-i18n="home.dialog.title">No donation needed.</h2>
+      <p data-i18n="home.dialog.body">This is a student archive — the only currency it accepts is your curiosity.
+         Click the map, wander around, and tell me which world we should build next.</p>
+      <div class="donate-card__qr-wrap">
+        <img class="donate-card__qr" src="assets/收款码.jpg" alt="WeChat Pay QR code">
+        <div class="donate-card__qr-label" data-i18n="home.dialog.qr.hint">Scan with WeChat to support</div>
+      </div>
+    </div>
+    <form method="dialog" class="donate-card__actions">
+      <button class="btn" type="submit" data-i18n="home.dialog.back">Back to the map</button>
     </form>
   </dialog>
 

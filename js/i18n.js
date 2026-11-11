@@ -121,6 +121,8 @@
     'soviet.info.birthplace': '出生地',
     'soviet.info.birthplace.value': '鄂木茨克，鄂木茨克州',
 
+    'story.disclaimer': '虚构故事，与现实世界无关，请仔细甄别。',
+
     /* Map story: Levant Union ------------------------------------- */
     'doc.title.levant': '黎凡特 — 地图画廊州',
     'levant.stamp': '地图',

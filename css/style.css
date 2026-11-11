@@ -555,6 +555,17 @@ button {
   font-style: italic;
 }
 
+/* 互动小说免责声明 */
+.story-note {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line-soft);
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.65;
+  text-align: center;
+}
+
 /* 07. Page: Artifacts --------------------------------------- */
 .page-head { padding-block: clamp(34px, 4.6vw, 48px) 0; }
 
